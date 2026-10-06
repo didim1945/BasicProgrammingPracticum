@@ -58,7 +58,7 @@ public class PemilihanIf12 {
 * **Pertanyaan 3:** Jalankan program, lalu masukkan TRUE (huruf kapital) dan ya. Apa yang terjadi pada masing-masing input? Jika program berhenti dengan error, jelaskan penyebabnya! 
     * **Jawab:** Apabila input "TRUE" program akan tetap berjalan, tetapi jika input "ya" program akan error karena boolean hanya menerima true/false.
 * **Pertanyaan 4:** Sistem perlu memberikan informasi apabila pengguna memasukkan nilai false, maka terdapat keluaran “Registrasi ditolak. Silakan lunasi UKT terlebih dahulu”. Modifikasi program tersebut dengan menambahkan struktur ELSE, , lalu tunjukkan hasil run untuk input true dan false! 
-    * **Jawab:** === INI SALAH ===
+    * **Jawab:** ![Percobaan 1 no 4](PemilihanIfno4-1.png)
 
 ---
 
@@ -373,7 +373,7 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
 ![Tugas 5](RSHarapanKita-1.png)
 
 ### 3.6 Tugas 6
-### 3.6.1 Kode Program Java
+#### 3.6.1 Kode Program Java
 ```java
 import java.util.Scanner;
 
@@ -416,4 +416,5 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
 ## 4: KESIMPULAN
 * ```IF``` digunakan jika memiliki satu kondisi.
 * ```IF ELSE``` digunakan jika memiliki dua kondisi.
-* ```IF ELSE-IF``` digunakan jika memiliki lebih dari satu kondisi.
+* ```IF ELSE-IF ELSE``` digunakan jika memiliki lebih dari satu kondisi. 
+* ```SWITCH CASE``` digunakan untuk memilih berdasarkan beberapa nilai yang tersedia.

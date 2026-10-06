@@ -71,7 +71,7 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
     ```   
     * **Jawab:** Mahasiswa dapat mendaftar ujian skripsi jika bimbingan ke pembimbing 1 lebih dari sama dengan 8 dan bimbingan ke pembimbing 2 lebih dari sama dengan 4.
 * **Pertanyaan 3:** Bagaimana alur pemeriksaan syarat mahasiswa dari awal sampai akhir? Jelaskan secara runtut untuk semua kondisi!
-    * **Jawab:** 3. Pertama, cek kondisi apakah mahasiswa bebas kompen atau tidak. Selanjutnya, jika kondisi TRUE maka akan lanjut untuk menginput banyak bimbingan kepada pembimbing1 dan pembimbing2 sedangkan jika kondisi FALSE maka mahasiswa masih memiliki tanggungan kompen. Jika banyak bimbingan kepada pembimbing 1 lebih dari sama dengan 8 dan kepada pembimbing 2 lebih dari sama dengan 4, maka mahasiswa boleh mendaftar ujian skripsi. Jika banyak bimbingan kepada pembimbing 1 kurang dari 8 dan kepada pembimbing 2 kurang dari 4, maka mahasiswa tidak dapat mendaftar ujian skripsi. Jika banyak bimbingan kepada pembimbing 1 kurang dari 8, maka mahasiswa tidak dapat mendaftar ujian skripsi. Jika banyak bimbingan kepada pembimbing 2 kurang dari 4, maka mahasiswa tidak dapat mendaftar ujian skripsi.
+    * **Jawab:** Pertama, cek kondisi apakah mahasiswa bebas kompen atau tidak. Selanjutnya, jika kondisi TRUE maka akan lanjut untuk menginput banyak bimbingan kepada pembimbing1 dan pembimbing2 sedangkan jika kondisi FALSE maka mahasiswa masih memiliki tanggungan kompen. Jika banyak bimbingan kepada pembimbing 1 lebih dari sama dengan 8 dan kepada pembimbing 2 lebih dari sama dengan 4, maka mahasiswa boleh mendaftar ujian skripsi. Jika banyak bimbingan kepada pembimbing 1 kurang dari 8 dan kepada pembimbing 2 kurang dari 4, maka mahasiswa tidak dapat mendaftar ujian skripsi. Jika banyak bimbingan kepada pembimbing 1 kurang dari 8, maka mahasiswa tidak dapat mendaftar ujian skripsi. Jika banyak bimbingan kepada pembimbing 2 kurang dari 4, maka mahasiswa tidak dapat mendaftar ujian skripsi.
 
 ### 2.2 Percobaan 2: Operator Logika untuk Menentukan Akses Wifi Kampus
 
@@ -198,7 +198,42 @@ Berikut adalah daftar tugas yang dikerjakan pada Jobsheet ini:
 ### 3.1 Tugas 1
 #### 3.1.1 Kode Program Java
 ```java
-
+import java.util.Scanner; 
+ 
+public class TokoBuku12 { 
+    public static void main(String[] args) { 
+        Scanner sc =  new Scanner(System.in); 
+ 
+        double diskon = 0; 
+        System.out.print("Masukkan buku yang dibeli (kamus/novel):  ");    
+        String buku = sc.nextLine(); 
+        System.out.print("Masukkan jumlah buku: "); 
+        int jumlahBuku = sc.nextInt(); 
+ 
+        if (buku.equalsIgnoreCase("kamus") || buku.equalsIgnoreCase("novel")) { 
+            if (buku.equalsIgnoreCase("kamus")) { 
+                diskon = 0.1; 
+                if (jumlahBuku > 2) { 
+                    diskon += 0.02; 
+                } 
+            } else { 
+                diskon = 0.07; 
+                if (jumlahBuku > 3) { 
+                    diskon += 0.02; 
+                } else { 
+                    diskon += 0.01; 
+                } 
+            } 
+        } else { 
+            if (jumlahBuku > 3) { 
+                diskon = 0.05; 
+            } 
+        } 
+        diskon = 100 * diskon; 
+        System.out.println("Jumlah diskon yang diberikan adalah " + (int) diskon + "%"); 
+        sc.close(); 
+    } 
+} 
 ```
 
 #### 3.1.2 Hasil Running / Screenshot Output
@@ -208,9 +243,47 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
 ### 3.2 Tugas 2
 #### 3.2.1 Kode Program Java
 ```java
+import java.util.Scanner;
 
+public class AsistenPraktikum12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        
+        System.out.print("\nApakah status mahasiswa aktif? (true/false): ");
+        boolean status = sc.nextBoolean();
+        System.out.print("Apakah memiliki ada sanksi akademik? (true/false): ");
+        boolean sanksi = sc.nextBoolean();
+        System.out.println();
+
+        if (status == true && ! sanksi) {
+            System.out.print("Masukkan nilai daspro: ");
+            int nilaiDaspro = sc.nextInt();
+            System.out.print("Apakah mahasiswa memiliki sertifikasi kompetensi pemrograman? ");
+            boolean sertifKompetensi = sc.nextBoolean();
+            if (nilaiDaspro >= 80 || sertifKompetensi == true) {
+                System.out.print("Masukkan niai wawancara: ");
+                int wawancara = sc.nextInt();
+                if (wawancara >= 75) {
+                    System.out.println("\n=== MAHASISWA DITERIMA ===\n");
+                } else {
+                    System.out.println("\n === GAGAL! Status: nilai wawancara kurang dari 75 ===\n");
+                }
+            } else {
+                System.out.println("\n === GAGAL! Status: nilai daspro kurang dari 80 atau tidak memiliki sertifikasi kompetensi pemrograman ===\n");
+            }
+        } else {
+            System.out.println("\n=== GAGAL! Status: mahasiswa tidak aktif atau memiliki sanksi akademik ===\n");
+        }
+        sc.close(); 
+    }
+}
 ```
 
 #### 3.2.2  Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
 ![Tugas 2](AsistenPraktikum-1.png)
+
+## 4: KESIMPULAN
+*  Nested IF dapat digunakan untuk memeriksa beberapa kondisi secara bertahap.
+* Penggunaan operator logika ```&&, ||, dan !``` membantu menggabungkan beberapa kondisi agar keputusan program dapat disesuaikan dengan kebutuhan.
