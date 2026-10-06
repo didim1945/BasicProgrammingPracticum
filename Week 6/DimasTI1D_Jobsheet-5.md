@@ -173,7 +173,7 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
 #### 2.3.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 
 1. Mengapa pemeriksaan punyaIzinDosen || asistenLab ditempatkan di dalam IF pertama? 
-    * **Jawab:** 
+    * **Jawab:** Karena syarat utama untuk bisa masuk ke laboratorium adalah mahasiswa harus berstatus aktif dan tidak sedang disanksi.
 2. Jelaskan fungsi operator &&, ||, dan ! pada program tersebut.
     * **Jawab:**
         - && menghasilkan TRUE jika kedua kondisi TRUE
@@ -185,7 +185,7 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
     * **Jawab:** Alurnya lebih jelas dan bisa menampilkan alasan penolakan berbeda sesuai tahap.
 5. Buat satu kombinasi masukan yang menyebabkan akses ditolak pada level pertama dan satu kombinasi yang menyebabkan akses ditolak pada level kedua.
     * **Jawab:** 
-        - Level 1: mahasiswaAktif = false, sedangDisanksi = true punyaIzinDosen = true, asistenLab = true.
+        - Level 1: mahasiswaAktif = false, sedangDisanksi = true, punyaIzinDosen = true, asistenLab = true.
         - Level 2: mahasiswaAktif = true, sedangDisanksi = false, punyaIzinDosen = false, asistenLab = false.
 
 ## 3: TUGAS MANDIRI
