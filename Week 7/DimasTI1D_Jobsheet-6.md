@@ -20,8 +20,8 @@ Berikut adalah tujuan pelaksanaan praktikum pada bab ini:
 ## 2: HASIL PERCOBAAN DAN ANALISIS
 
 ### 2.1 Percobaan 1: Menyiapkan Repository
-Pada percobaan ini dibuat repository PraktikumDaspro14 di GitHub, lalu di-clone ke komputer melalui Visual Studio Code. Setelah itu dibuat file README.md berisi identitas, kemudian disimpan dengan alur Add → Commit → Push.
-
+Pada percobaan ini dibuat repository `PraktikumDaspro12` di GitHub, lalu di-clone ke komputer melalui Visual Studio Code. Setelah itu dibuat file README.md berisi identitas, kemudian disimpan dengan alur Add → Commit → Push.
+![Percobaan 1](README-1.png)
 Alur kerja Git yang digunakan:
 * Clone: menduplikasi repository GitHub ke komputer.
 * Add: memilih perubahan yang akan disimpan ke staging area.
