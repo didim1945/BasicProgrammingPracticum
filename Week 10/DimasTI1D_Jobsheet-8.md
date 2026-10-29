@@ -56,11 +56,11 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
     ```
     Modifikasi kode tersebut agar mencetak bilangan **ganjil** positif yang tidak melebihi n.
     * **Jawab:** Dengan mengubah inisialisasi `i` menjadi 1.
-    ```java
-    for (int i = 1; i <= n; i +=2 ) {
-            System.out.print(i + " ");
-        }
-    ```
+        ```java
+        for (int i = 1; i <= n; i +=2 ) {
+                System.out.print(i + " ");
+            }
+        ```
 * **Pertanyaan 4:** Jelaskan mengapa perubahan *increment* `i++` menjadi `i--` (dengan kondisi tetap `i <= n`) membuat perulangan berjalan terus-menerus dan tidak berhenti dalam waktu wajar untuk n positif. Jangan menjalankan versi tersebut; jika terlanjur berjalan, hentikan program dengan menekan **Ctrl + C** pada terminal. 
     * **Jawab:** Karena mengakibatkan kondisi selalu bernilai true sehingga loop tidak pernah berhenti (infinite loop).
 ---
@@ -92,6 +92,7 @@ public class Rectangle12 {
 ```
 #### 2.2.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
+![Percobaan 2](Rectangle-1.png)
 
 #### 2.2.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Tentukan fungsi variabel `i` dan `j` pada program tersebut.
@@ -102,11 +103,33 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
         * Inner loop: 7 kali.
         * `print("*"):`: 28 kali.
 * **Pertanyaan 3:** Apa yang terjadi jika batas perulangan luar dan dalam ditukar (outer menggunakan `kolom`, inner menggunakan `baris`)? Gunakan baris = 3 dan kolom = 6 untuk menjelaskan.
-    * **Jawab:**
+    * **Jawab:** Apabila dibalik (outer menggunakan `kolom` dan inner menggunakan `baris`) maka hasilnya 6 baris dan 3 kolom. Awalnya 3 x 6 tetapi setelah dibalik menjadi 6 x 3.
 * **Pertanyaan 4:** Jelaskan akibat penghapusan `System.out.println();` setelah inner loop.
-    * **Jawab:**
+    * **Jawab:** Karakter `*` akan berpindah menjadi satu baris panjang, tidak berpindah baris.
 * **Pertanyaan 5:** Modifikasi program agar karakter yang dicetak adalah `#`, lalu commit dan push perubahan ke GitHub.
     * **Jawab:**
+        ```java
+        import java.util.Scanner;
+
+        public class Rectangle12 {
+            public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+
+                System.out.print("Masukkan jumlah baris: ");
+                int baris = sc.nextInt();
+                System.out.print("Masukkan jumlah kolom: ");
+                int kolom = sc.nextInt();
+
+                for (int i = 1; i <= baris; i++) {
+                    for (int j = 1; j <= kolom; j++) {
+                        System.out.print("#");  
+                    }
+                    System.out.println();
+                }
+                sc.close();
+            }
+        }
+        ```
 ---
 
 ### 2.3 Percobaan 3: Debugging Bintang Segitiga - Nested WHILE
