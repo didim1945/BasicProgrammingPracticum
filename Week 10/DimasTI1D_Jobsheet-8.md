@@ -22,17 +22,32 @@ Berikut adalah tujuan pelaksanaan praktikum pada bab ini:
 Percobaan ini mengulang konsep perulangan `FOR` sebelum mempelajari perulangan bersarang. Program menampilkan karakter `*` sebanyak *n* kali secara mendatar (ke arah samping). Gunakan input *n* berupa bilangan bulat positif.
 #### 2.1.1 Kode Program Java
 ```java
+import java.util.Scanner;
 
+public class Star12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Masukkan nilai n: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+        sc.close();
+    }
+}
 ```
-#### 2.1.2 Hasil Running / Screenshoot Output
+#### 2.1.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-
+![Percobaan 1](Star-1.png)
 
 #### 2.1.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Jika inisialisasi `i = 1` diubah menjadi `i = 0` tanpa mengubah kondisi, berapa karakter `*` yang tercetak ketika n = 5? Jelaskan.
-    * **Jawab:**
+    * **Jawab:** Karakter `*` akan tercetak sebanyak 6 karena angka 0 bernilai true sehingga `i` bernilai 0, 1, 2, 3, 4, 5.
 * **Pertanyaan 2:** Jika kondisi `i <= n` diganti menjadi `i < n`, berapa kali perulangan dijalankan saat n = 5? Mengapa hasilnya berbeda?
-    * **Jawab:**
+    * **Jawab:** Karakter `*` akan tercetak sebanyak 4 karena ketika `i` bernilai 5 hasilnya false.
 * **Pertanyaan 3:** Prediksi output potongan kode berikut ketika n = 9, kemudian buktikan dengan mengganti perulangan FOR pada program Anda dan menjalankannya.
     ```java
     for (int i = 2; i <= n; i += 2) {
@@ -40,25 +55,52 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
     }
     ```
     Modifikasi kode tersebut agar mencetak bilangan **ganjil** positif yang tidak melebihi n.
-    * **Jawab:**
+    * **Jawab:** Dengan mengubah inisialisasi `i` menjadi 1.
+    ```java
+    for (int i = 1; i <= n; i +=2 ) {
+            System.out.print(i + " ");
+        }
+    ```
 * **Pertanyaan 4:** Jelaskan mengapa perubahan *increment* `i++` menjadi `i--` (dengan kondisi tetap `i <= n`) membuat perulangan berjalan terus-menerus dan tidak berhenti dalam waktu wajar untuk n positif. Jangan menjalankan versi tersebut; jika terlanjur berjalan, hentikan program dengan menekan **Ctrl + C** pada terminal. 
-    * **Jawab:**
+    * **Jawab:** Karena mengakibatkan kondisi selalu bernilai true sehingga loop tidak pernah berhenti (infinite loop).
 ---
 
 ### 2.2 Percobaan 2: Pola Bintang Persegi Panjang (Nested FOR)
 Pada percobaan ini digunakan nested loop FOR untuk mencetak persegi panjang bintang. Jumlah baris dan kolom dimasukkan secara terpisah sehingga peran kedua loop dapat diamati dengan jelas: outer loop mengatur baris, sedangkan inner loop mengatur kolom (ingat analogi rak/loker pada materi).
 #### 2.2.1 Kode Program Java
 ```java
+import java.util.Scanner;
 
+public class Rectangle12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Masukkan jumlah baris: ");
+        int baris = sc.nextInt();
+        System.out.print("Masukkan jumlah kolom: ");
+        int kolom = sc.nextInt();
+
+        for (int i = 1; i <= baris; i++) {
+            for (int j = 1; j <= kolom; j++) {
+                System.out.print("*");  
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
 ```
-#### 2.2.2 Hasil Running / Screenshoot Output
+#### 2.2.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
 
 #### 2.2.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Tentukan fungsi variabel `i` dan `j` pada program tersebut.
-    * **Jawab:**
+    * **Jawab:** Variabel `i` digunakan untuk menghitung banyak baris pada outer loop sedangkan `j` digunakan untuk menghitung banyak kolom pada inner lopo.
 * **Pertanyaan 2:** Berapa kali outer loop, inner loop, dan perintah `print("*")` dijalankan untuk baris = 4 dan kolom = 7? 
     * **Jawab:**
+        * Outer loop: 4 kali.
+        * Inner loop: 7 kali.
+        * `print("*"):`: 28 kali.
 * **Pertanyaan 3:** Apa yang terjadi jika batas perulangan luar dan dalam ditukar (outer menggunakan `kolom`, inner menggunakan `baris`)? Gunakan baris = 3 dan kolom = 6 untuk menjelaskan.
     * **Jawab:**
 * **Pertanyaan 4:** Jelaskan akibat penghapusan `System.out.println();` setelah inner loop.
