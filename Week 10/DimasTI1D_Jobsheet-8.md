@@ -41,7 +41,7 @@ public class Star12 {
 ```
 #### 2.1.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-![Percobaan 1](Star-1.png)
+![Percobaan 1](Star.png)
 
 #### 2.1.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Jika inisialisasi `i = 1` diubah menjadi `i = 0` tanpa mengubah kondisi, berapa karakter `*` yang tercetak ketika n = 5? Jelaskan.
@@ -92,7 +92,7 @@ public class Rectangle12 {
 ```
 #### 2.2.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-![Percobaan 2](Rectangle-1.png)
+![Percobaan 2](Rectangle.png)
 
 #### 2.2.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Tentukan fungsi variabel `i` dan `j` pada program tersebut.
@@ -180,23 +180,92 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
 Dalam penilaian proyek kelompok, setiap kelompok memperoleh nilai dari sejumlah penilai. Program menerima jumlah kelompok dan jumlah penilai yang sama untuk setiap kelompok, kemudian menghitung rata-rata nilai tiap kelompok dan menentukan kelompok dengan ratarata tertinggi. Kasus ini diselesaikan dengan nested loop tanpa perlu menyimpan seluruh nilai: WHILE (luar) untuk kelompok, FOR (tengah) untuk penilai, dan DO-WHILE (dalam) untuk mengulang input nilai yang tidak valid. 
 #### 2.4.1 Kode Progran Java
 ```java
+import java.util.Scanner;
 
+public class NilaiKelompok12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Masukkan jumlah kelompok: ");
+        int jumlahKelompok = sc.nextInt();
+        System.out.print("Masukkan jumlah penilai: ");
+        int jumlahPenilai = sc.nextInt();
+
+        if (jumlahKelompok <= 0 || jumlahPenilai <= 0) {
+            System.out.println("Jumlah kelompok dan penilai harus > 0.");
+        } else {
+            int nomorKelompok = 1;
+            double rataTertinggi = -1;
+            int kelompokTerbaik = 0;
+            System.out.println();
+
+            while (nomorKelompok <= jumlahKelompok) {
+                System.out.println("--- Kelompok " + nomorKelompok + " ---");
+                double totalNilai = 0;
+                for (int j = 1; j <= jumlahPenilai; j++) {
+                    int nilai;
+                    do {
+                        System.out.print(" Nilai dari penilai " + j + ": ");
+                        nilai = sc.nextInt();
+                        if (nilai < 0 || nilai > 100) {
+                            System.out.println("Nilai harus 0-100. Ulangi input!");
+                        }
+                    } while (nilai < 0 || nilai > 100);
+                    totalNilai += nilai;
+                }
+                double rataNilai = totalNilai / jumlahPenilai;
+                System.out.println("Kelompok " + nomorKelompok + ": nilai rata-rata = " + rataNilai);
+                if (rataNilai > rataTertinggi) {
+                    rataTertinggi = rataNilai;
+                    kelompokTerbaik = nomorKelompok;
+                }
+                nomorKelompok++;
+            }
+            System.out.println("\n=========================");
+            System.out.println("Kelompok terbaik    : " + kelompokTerbaik);
+            System.out.println("Rata-rata tertinggi : " + rataTertinggi);
+        }
+        sc.close();
+    }
+}
 ```
 #### 2.4.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-
+![Percobaan 4](NilaiKelompok.png)
 
 #### 2.4.3 Jawaban Pertanyaan / Pertanyaan Refleksif
 * **Pertanyaan 1:** Mengapa `totalNilai` perlu di-reset di dalam outer loop, tetapi `rataTertinggi` tidak boleh di-reset pada setiap kelompok?
     * **Jawab:** 
+        * `totalNilai`: perlu di-reset supaya nilai kelompok pertama tidak bertambah ke nilai kelompok berikutnya.
+        * `rataTertinggi`: tidak perlu di-riset karena digunakan untuk menyimpan rata-rata tertinggi dari seluruh kelompok.
 * **Pertanyaan 2:** Untuk 3 kelompok dan 2 penilai (tanpa input yang salah), berapa kali badan perulangan FOR dijalankan secara keseluruhan?
-    * **Jawab:** 
+    * **Jawab:** Melakukan perulagan `FOR` sebanyak 6 kali. Menginput 2 nilai dari masing-masing kelompok (3 kelompok).
 * **Pertanyaan 3:** Apa yang terjadi jika totalNilai dideklarasikan sebagai int dan rata-rata dihitung menggunakan pembagian dua bilangan bulat? Berikan contoh nilai.
-    * **Jawab:**
+    * **Jawab:** Jika totalNilai dan jumlahPenilai menggunakan tipe data yang sama yaitu int, maka java akan melakukan pembagian  bilangan bulat terlebih dahulu sehingga bagian desimal hasil pembagian dibuang. Kemudian hasilnya akan disimpan ke variabel rataNilai.
+    ```java
+    // Kedua variabel menggunakan tipe data int
+        int totNilai = 50;
+        int jumPenilai = 4;
+
+        double rerataNilai = totNilai / jumPenilai;
+        System.out.print(rerataNilai);
+    // Output: 12.0
+    ```
+    ```java
+    // Variabel totNilai menggunakan tipe data double
+        double totNilai = 50;
+        int jumPenilai = 4;
+
+        double rerataNilai = totNilai / jumPenilai;
+        System.out.print(rerataNilai);
+    // Output: 12.5
+    ```
 * **Pertanyaan 4:** Mengapa rataTertinggi diberi nilai awal -1, bukan 0? Berikan contoh input yang membuat hasil salah apabila nilai awalnya 0.
-    * **Jawab:** 
+    * **Jawab:** Karena jika semua kelompok mendapatkan rata-rata 0, maka kelompok pertama yang akan mendapat gelar kelompok terbaik. Contohnya ketika kelompok 1 dan kelompok 2 mendapaat rata-rata 0, maka `rataNilai > rataTertinggi` bernilai false sehingga variabel `kelompokTerbaik` bernilai 0.
 * **Pertanyaan 5:** Program ini memiliki tiga tingkat perulangan. Sebutkan masing-masing jenis perulangan beserta perannya.
     * **Jawab:**
+        * `while` (outer loop): digunakan untuk mengulang kelompok satu persatu hingga jumlah kelompok terpenuhi.
+        * `for` (mid loop): digunakan untuk mengulang proses input nilai dari setiap penilai dalam satu kelompok sesuai jumlah penilai.
+        * `do-while` (inner loop): digunakan untuk melakukan proses input nilai dari setiap penilai dan memastikan nilai yang diinput berada dalam rentang 0-100.
 ---
 
 ## 3. TUGAS
