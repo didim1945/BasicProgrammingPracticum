@@ -136,19 +136,44 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
 Kode awal pada percobaan ini sengaja dibuat belum menghasilkan format segitiga yang benar. Tugas Anda adalah mengidentifikasi kesalahannya dan memperbaikinya tanpa mengganti struktur WHILE menjadi FOR.  
 #### 2.3.1 Kode Program Java
 ```java
+import java.util.Scanner;
 
+public class Triangle12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Masukkan nilai n: ");
+        int n = sc.nextInt();
+
+        int i = 1;
+        while (i <= n) {
+            int j = 0;
+            while (j < i) {
+                System.out.print("*");   
+                j++;
+            }
+            System.out.println();
+            i++;
+        }
+        sc.close();
+    }
+}
 ```
 #### 2.3.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-
+![Percobaan 3](Triangle.png)
 
 #### 2.3.3 Jawaban Pertanyaan / Pertanyaan Refleksif
 * **Pertanyaan 1:** Sebutkan ketidaksesuaian output awal dan minimal dua perbaikan yang diperlukan untuk menghasilkan pola segitiga bertingkat.
-    * **Jawab:**
+    * **Jawab:** Inisialisasi integer dan penggunaan `System.out.println();`. Mengubah variabel `i` menjadi 1 dan meletakkan `System.out.println();` setelah inner loop.
 * **Pertanyaan 2:** Jelaskan peran variabel `i` dan `j`. Mengapa nilai `j` harus diinisialisasi kembali ke 0 pada setiap iterasi outer loop? Apa yang terjadi jika `j` tidak di-reset? 
-    * **Jawab:**
+    * **Jawab:** Variabel `i` digunakan untuk menghitung banyaknya baris dan `j` untuk menghitung banyaknya bintang dalam satu baris. Variabel `j` perlu diinisialisasi menjadi 0 karena inner loop butuh mulai dari awal untuk setiap baris. Jika variabel `j` tidak direset, maka nilai j akan terus bertambah dari baris sebelumnya dan tidak kembali ke 0.
 * **Pertanyaan 3:** Jelaskan perubahan inisialisasi, kondisi, dan perubahan nilai (update) pada outer loop yang diperlukan untuk membentuk segitiga terbalik. 
     * **Jawab:**
+        * Inisialisasi: mengubah nilai `int` menjadi 1.
+        * Kondisi: tetap `i <= n`.
+        * Update: tetap `i++`.
+        Untuk membentuk segitiga terbalik hal yang perlu diubah yaitu kondisi pada inner loop yang sebelumnya `j < i` menjadi `j < n-i+1`.
 ---
 
 ### 2.4 Percobaan 4: Studi Kasus Nilai Tugas Proyek Kelompok
