@@ -272,11 +272,35 @@ Berikut adalah contoh tampilan *output* setelah program dijalankan:
 ### 3.1 Tugas 1: Pola Bilangan Bertingkat
 #### 3.1.1 Kode Program Java
 ```java
+import java.util.Scanner;
 
+public class Tugas1_12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Masukkan nilai n: ");
+        int n = sc.nextInt();
+
+        int i = 1;
+        int tot = 0;
+        while (i <= n) {
+            int j = 1;
+            while (j <= i) {
+                System.out.print(j + " ");
+                tot++;
+                j++;
+            }
+            System.out.println();
+            i++;
+        }
+        System.out.println("Total angka tercetak: " + tot);
+        sc.close();
+    }
+}
 ```
 #### 3.1.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-
+![Tugas 1](Tugas1.png)
 
 ---
 ### 3.2 Tugas 2: Tabel Perkalian
