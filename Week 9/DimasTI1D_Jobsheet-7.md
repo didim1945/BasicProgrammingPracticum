@@ -49,7 +49,9 @@ public class SiakadFor12 {
 ```
 #### 2.1.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-![Percobaan 1](SiakadFor-1.png)
+
+![Percobaan 1](SiakadFor.png)
+
 #### 2.1.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Sebutkan dan tunjukkan masing-masing komponen perulangan FOR pada kode program percobaan 1!
     * **Jawab:** 
@@ -156,7 +158,8 @@ public class SiakadWhile12 {
 ```
 #### 2.2.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-![Percobaan 2](SiakadWhile-1.png)
+
+![Percobaan 2](SiakadWhile.png)
 
 #### 2.2.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Pada potongan kode berikut, tentukan maksud dan kegunaaan dari sintaks berikut:
@@ -261,7 +264,8 @@ public class KafeDoWhile12 {
 ```
 #### 2.3.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-![Percobaan 3](KafeDoWhile-1.png)
+
+![Percobaan 3](KafeDoWhile.png)
 
 #### 2.3.3 Jawaban Pertanyaan / Pertanyaan Refleksi
 * **Pertanyaan 1:** Pada penggunaan DO-WHILE ini, apabila nama pelanggan yang dimasukkan pertama kali adalah "batal", maka berapa kali perulangan dilakukan?
@@ -318,7 +322,8 @@ public class Bioskop12 {
 ```
 #### 3.1.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-![Tugas 1](Bioskop-1.png)
+
+![Tugas 1](Bioskop.png)
 
 ---
 ### 3.2 Tugas 2
@@ -358,8 +363,13 @@ public class Parkir12 {
 
 #### 3.2.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
-![Tugas 2](Parkir-1.png)
+
+![Tugas 2](Parkir.png)
 
 ---
 
 ## 4. KESIMPULAN
+* Perulangan dipakai untuk menjalankan blok kode berulang kali tanpa menulis kode yang sama berkali-kali. `for` `while` `do-while`
+* `for` cocok jika jumlah pengulangan sudah diketahui dengan inisialisasi, kondisi, update ditulis dalam satu baris.
+* `while` cocok jika jumlah pengulangan bergantung pada kondisi atau input pengguna.
+* `do-while` menjalankan blok kode minimal satu kali sebelum kondisi dicek.

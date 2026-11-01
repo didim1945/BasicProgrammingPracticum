@@ -41,6 +41,7 @@ public class Star12 {
 ```
 #### 2.1.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
+
 ![Percobaan 1](Star.png)
 
 #### 2.1.3 Jawaban Pertanyaan / Pertanyaan Refleksi
@@ -92,6 +93,7 @@ public class Rectangle12 {
 ```
 #### 2.2.2 Hasil Running / Screenshot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
+
 ![Percobaan 2](Rectangle.png)
 
 #### 2.2.3 Jawaban Pertanyaan / Pertanyaan Refleksi
@@ -161,6 +163,7 @@ public class Triangle12 {
 ```
 #### 2.3.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
+
 ![Percobaan 3](Triangle.png)
 
 #### 2.3.3 Jawaban Pertanyaan / Pertanyaan Refleksif
@@ -230,6 +233,7 @@ public class NilaiKelompok12 {
 ```
 #### 2.4.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
+
 ![Percobaan 4](NilaiKelompok.png)
 
 #### 2.4.3 Jawaban Pertanyaan / Pertanyaan Refleksif
@@ -300,28 +304,115 @@ public class Tugas1_12 {
 ```
 #### 3.1.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
+
 ![Tugas 1](Tugas1.png)
 
 ---
 ### 3.2 Tugas 2: Tabel Perkalian
 #### 3.2.1 Kode Program Java
 ```java
+import java.util.Scanner;
 
+public class Tugas2_12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int tot = 0;
+        boolean kondisi = true;
+
+        do {
+            System.out.print("Masukkan nilai n: ");
+            int n = sc.nextInt();
+            if (n < 3) {
+                System.out.println("Nilai n harus minimal 3!");
+            } else {
+                for (int i = 1; i <= n; i++) {
+                    for (int j = 1; j <= n; j++) {
+                        System.out.printf("%4d", (i * j));  // %4d untuk merapikan blok
+                        tot += i * j;
+                    }
+                    System.out.println();
+                }
+                System.out.println("Jumlah seluruh angka: " + tot);
+                kondisi = false;
+            }
+        } while (kondisi);
+    }
+}
 ```
 #### 3.1.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
 
+![Tugas 2](Tugas2.png)
 
 ---
 ### 3.3 Tugas 3: 
 #### 3.3.1 Kode Program Java
 ```java
+import java.util.Scanner;
 
+public class Tugas3_12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int jumlahToko;
+        do {
+            System.out.print("Masukkan jumlah toko: ");
+            jumlahToko = sc.nextInt();
+            if (jumlahToko < 1) {
+                System.out.println("Jumlah toko harus > 0.");
+            }
+        } while (jumlahToko < 1);
+
+        int totalBarangToko = 0;
+        int maxBarang = -1;
+        int tokoTerbanyak = 1;
+
+        for (int toko = 1; toko <= jumlahToko; toko++) {
+            System.out.println("\n---------- TOKO " + toko + " ----------");
+            int jumlahPelanggan;
+            do {
+                System.out.print("Masukkan jumlah pelanggan: ");
+                jumlahPelanggan = sc.nextInt();
+                if (jumlahPelanggan < 0) {
+                    System.out.println("Jumlah pelanggan harus >= 0.");
+                }
+            } while (jumlahPelanggan < 0);
+
+            int totalBarangPerToko = 0;
+            for (int pelanggan = 1; pelanggan <= jumlahPelanggan; pelanggan++) {
+                int jumlahBarang;
+                do {
+                    System.out.print("Masukkan jumlah barang pelanggan ke-" + pelanggan + ": ");
+                    jumlahBarang = sc.nextInt();
+                    if (jumlahBarang < 0) {
+                        System.out.println("Jumlah barang harus >= 0.");
+                    }
+                } while (jumlahBarang < 0);
+                totalBarangPerToko += jumlahBarang;
+            }
+            System.out.println("Toko " + toko + " - pelanggan: " + jumlahPelanggan + ", total barang: " + totalBarangPerToko);
+            totalBarangToko += totalBarangPerToko;
+            if (totalBarangPerToko > maxBarang) {
+                maxBarang = totalBarangPerToko;
+                tokoTerbanyak = toko;
+            }
+        }
+        System.out.println("\n=================================");
+        System.out.println("Total barang seluruh toko    : " + totalBarangToko);
+        System.out.println("Toko dengan barang terbanyak : " + tokoTerbanyak);
+        sc.close();
+    }
+}
 ```
 #### 3.3.2 Hasil Running / Screenshoot Output
 Berikut adalah contoh tampilan *output* setelah program dijalankan:
 
+![Tugas 3](Tugas3.png)
 
 ---
 
 ## 4. KESIMPULAN
+* Perulangan bersarang adalah perulangan di dalam perulangan. Outer loop mengatur pengulangan yang lebih besar (misalnya baris), sedangkan inner loop mengatur pengulangan yang lebih detail (misalnya kolom).
+* Pada pola bintang, outer loop mengatur baris dan inner loop mengatur kolom. `System.out.println()` harus diletakkan setelah inner loop agar tiap bari pindah ke baris baru. Pada segitiga, inner loop bergantung pada nilai outer loop (j < i), dan variabel `j` harus direset di setiap iterasi outer loop.
+* Ketiga jenis perulangan dapat dikombinasikan sesuai kebutuhan. Pada percobaan 4, `while` dipakai untuk kelompok, `for` untuk penilai, dan `do-while` untuk validasi input.
